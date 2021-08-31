@@ -1,4 +1,4 @@
-# API loading testing tool
+# API load testing tool
 
 For most configuration of this testing app, you could find it in the ./resources/config.properties
 
