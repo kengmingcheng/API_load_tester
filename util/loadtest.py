@@ -105,10 +105,6 @@ class request_sender(threading.Thread):
                 else:
                     payload[key] = value
 
-
-            message = payload["SmsBody"] + '_' + self.name + " " + mark
-            payload["SmsBody"] = generator.base64_convert(message)
-
             return urllib.parse.urlencode(payload).encode(encoding="utf-8")
 
         elif self.type == "xml":
@@ -131,19 +127,6 @@ class request_sender(threading.Thread):
                 else:
                     ET.SubElement(root, key).text = value
 
-            # ET.SubElement(root, "SysId").text = self.sysid
-            # ET.SubElement(root, "SrcAddress").text = self.account
-            # ET.SubElement(root, "SmsBody").text = generator.base64_convert(self.message + " " + mark)
-            # ET.SubElement(root, "ExpiryMinutes").text = "1440"
-            # root.find("SysId").text = self.sysid
-            # root.find("SrcAddress").text = self.account
-            message = root.find("SmsBody").text + '_' + self.name + " " + mark
-            root.find("SmsBody").text = generator.base64_convert(message)
-
-            # for dest in self.dests:
-            #     dest_node = ET.SubElement(root, "DestAddress")
-            #     dest_node.text = dest
-            payload_xml.write("resources/sent.xml")
             payload = {"xml": ET.tostring(root, encoding= "utf-8")}
 
             return urllib.parse.urlencode(payload).encode(encoding="utf-8")

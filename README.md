@@ -10,9 +10,9 @@ python3 main.py
 ## Explanation in config.properties
 ---
 ### server
-* target server of the testing
+* target server of the test
 ### api
-* target api of the testing
+* target api of the test
 ### content-type
 * acceptable options: xml, json
 ### source
@@ -28,12 +28,12 @@ python3 main.py
 
 ### payload
 
-By appending ".<payload_field> = <payload_value>", you can add extra payload to the default payload file. For instance:
+By appending ".<payload_field> = <payload_value>", you can add extra payloads to the default payload file. For instance:
 ```
 payload.my_test_field = my_test_value
 payload.my_another_field = my_another_value
 ```
-This will append a new field to the payload, like:
+This will append new fields to the payload, like:
 ```
 {
     "my_test_field": "my_test_value",
@@ -48,7 +48,7 @@ Similar to paylaod, you can also customize content in the headers using "headers
 headers.my_test_header = my_header_value
 headers.my_another_headers = my_another_header_value
 ```
-This will append a new field to the headers, like:
+This will append new fields to the headers, like:
 ```
 Request Headers
     my_test_header: my_header_value
